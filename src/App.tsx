@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import RatingStar from './components/RatingStar';
+import StarRating from './components/StarRating';
 
 function App() {
   return (
     <div className="App">
-      <RatingStar />
+      <StarRating />
     </div>
   );
 }

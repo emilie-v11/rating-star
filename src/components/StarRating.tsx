@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-interface RatingStarProps {
+interface StarRatingProps {
   maxRating?: number;
   size?: number;
   color?: string;
   defaultRating?: number;
 }
 
-export default function RatingStar({
+export default function StarRating({
   maxRating = 10,
   size = 24,
   color = '#F8D001',
   defaultRating = 0,
-}: RatingStarProps) {
+}: StarRatingProps) {
   const [rating, setRating] = useState<number>(defaultRating);
   const [hoverRating, setHoverRating] = useState<number>(0);
 
