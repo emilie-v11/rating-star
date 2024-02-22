@@ -7,6 +7,7 @@ interface StarRatingProps {
   color?: string;
   defaultRating?: number;
   className?: string;
+  onsetRating?: (rating: number) => void;
 }
 
 export default function StarRating({
@@ -15,12 +16,17 @@ export default function StarRating({
   color = '#F8D001',
   defaultRating = 0,
   className = '',
+  onsetRating,
 }: StarRatingProps) {
   const [rating, setRating] = useState<number>(defaultRating);
   const [hoverRating, setHoverRating] = useState<number>(0);
 
   function handleRating(rating: number) {
     setRating(rating);
+    // optional callback
+    if (onsetRating) {
+      onsetRating(rating);
+    }
   }
 
   const containerStyle = {
@@ -32,6 +38,7 @@ export default function StarRating({
 
   const starContainerStyle = {
     display: 'flex',
+    padding: 0,
   };
 
   return (
