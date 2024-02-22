@@ -4,14 +4,16 @@ interface RatingStarProps {
   maxRating?: number;
   size?: number;
   color?: string;
+  defaultRating?: number;
 }
 
 export default function RatingStar({
   maxRating = 10,
   size = 24,
   color = '#000',
+  defaultRating = 0,
 }: RatingStarProps) {
-  const [rating, setRating] = useState<number>(0);
+  const [rating, setRating] = useState<number>(defaultRating);
 
   function handleRating(rating: number) {
     setRating(rating);
