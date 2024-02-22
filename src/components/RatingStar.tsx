@@ -1,11 +1,16 @@
 import React from 'react';
 
 interface RatingStarProps {
-  maxRating: number;
-  size: number;
+  maxRating?: number;
+  size?: number;
+  color?: string;
 }
 
-export default function RatingStar({ maxRating, size }: RatingStarProps) {
+export default function RatingStar({
+  maxRating = 10,
+  size= 24,
+  color= '#000',
+}: RatingStarProps) {
   const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -21,7 +26,11 @@ export default function RatingStar({ maxRating, size }: RatingStarProps) {
     <div style={containerStyle}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
-          <Star key={i} size={size} />
+          <Star
+            key={i}
+            size={size}
+            color={color}
+          />
         ))}
       </div>
     </div>
@@ -30,9 +39,10 @@ export default function RatingStar({ maxRating, size }: RatingStarProps) {
 
 interface StarProps {
   size: number;
+  color: string;
 }
 
-function Star({ size }: StarProps) {
+function Star({ size, color }: StarProps) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
@@ -49,7 +59,7 @@ function Star({ size }: StarProps) {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        stroke="#000"
+        stroke={color}
       >
         <path
           strokeLinecap="round"
