@@ -10,7 +10,7 @@ interface RatingStarProps {
 export default function RatingStar({
   maxRating = 10,
   size = 24,
-  color = '#000',
+  color = '#D4AF37', // yellow  #D4AF37 // #F8D001 // #fcc419 // #FFD700 gold
   defaultRating = 0,
 }: RatingStarProps) {
   const [rating, setRating] = useState<number>(defaultRating);
