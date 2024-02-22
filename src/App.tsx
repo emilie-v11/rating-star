@@ -5,7 +5,7 @@ import RatingStar from './components/RatingStar';
 function App() {
   return (
     <div className="App">
-      <RatingStar />
+      <RatingStar maxRating={10}/>
     </div>
   );
 }

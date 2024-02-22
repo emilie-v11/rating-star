@@ -7,11 +7,15 @@ const containerStyle = {
   gap: '16px',
 };
 
-function RatingStar() {
+interface RatingStarProps {
+  maxRating: number;
+}
+
+function RatingStar({maxRating}: RatingStarProps) {
   return (
     <div style={containerStyle}>
       <div>
-        {Array.from({ length: 10 }, (_, i) => (
+        {Array.from({ length: maxRating }, (_, i) => (
           <span
             key={i}
             role="img"
