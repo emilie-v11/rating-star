@@ -2,9 +2,10 @@ import React from 'react';
 
 interface RatingStarProps {
   maxRating: number;
+  size: number;
 }
 
-export default function RatingStar({ maxRating }: RatingStarProps) {
+export default function RatingStar({ maxRating, size }: RatingStarProps) {
   const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -20,17 +21,21 @@ export default function RatingStar({ maxRating }: RatingStarProps) {
     <div style={containerStyle}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
-          <Star key={i} />
+          <Star key={i} size={size} />
         ))}
       </div>
     </div>
   );
 }
 
-function Star() {
+interface StarProps {
+  size: number;
+}
+
+function Star({ size }: StarProps) {
   const starStyle = {
-    width: '24px',
-    height: '24px',
+    width: `${size}px`,
+    height: `${size}px`,
     display: 'block',
   };
 
