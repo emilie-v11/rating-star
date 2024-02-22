@@ -14,6 +14,7 @@ export default function RatingStar({
   defaultRating = 0,
 }: RatingStarProps) {
   const [rating, setRating] = useState<number>(defaultRating);
+  const [hoverRating, setHoverRating] = useState<number>(0);
 
   function handleRating(rating: number) {
     setRating(rating);
@@ -38,8 +39,10 @@ export default function RatingStar({
             key={i}
             size={size}
             color={color}
-            full={rating >= i + 1}
+            full={hoverRating ? hoverRating >= i + 1 : rating >= i + 1}
             onRate={() => handleRating(i + 1)}
+            onHoverIn={() => setHoverRating(i + 1)}
+            onHoverOut={() => setHoverRating(0)}
           />
         ))}
       </div>
@@ -52,9 +55,11 @@ interface StarProps {
   color: string;
   full: boolean;
   onRate: () => void;
+  onHoverIn: () => void;
+  onHoverOut: () => void;
 }
 
-function Star({ size, color, full, onRate }: StarProps) {
+function Star({ size, color, full, onRate, onHoverIn, onHoverOut }: StarProps) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
@@ -68,6 +73,8 @@ function Star({ size, color, full, onRate }: StarProps) {
       aria-label="star"
       style={starStyle}
       onClick={onRate}
+      onMouseEnter={onHoverIn}
+      onMouseLeave={onHoverOut}
     >
       {full ? (
         <svg
