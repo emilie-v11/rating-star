@@ -13,6 +13,10 @@ export default function RatingStar({
 }: RatingStarProps) {
   const [rating, setRating] = useState<number>(0);
 
+  function handleRating(rating: number) {
+    setRating(rating);
+  }
+
   const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -33,6 +37,7 @@ export default function RatingStar({
             size={size}
             color={color}
             full={rating >= i + 1}
+            onRate={() => handleRating(i + 1)}
           />
         ))}
       </div>
@@ -44,9 +49,10 @@ interface StarProps {
   size: number;
   color: string;
   full: boolean;
+  onRate: () => void;
 }
 
-function Star({ size, color, full }: StarProps) {
+function Star({ size, color, full, onRate }: StarProps) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
@@ -59,6 +65,7 @@ function Star({ size, color, full }: StarProps) {
       role="button"
       aria-label="star"
       style={starStyle}
+      onClick={onRate}
     >
       {full ? (
         <svg
