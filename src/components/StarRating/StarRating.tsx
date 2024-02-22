@@ -39,7 +39,7 @@ export default function StarRating({
       style={containerStyle}
       className={className}
     >
-      <div style={starContainerStyle}>
+      <ul style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
             key={i}
@@ -51,7 +51,7 @@ export default function StarRating({
             onHoverOut={() => setHoverRating(0)}
           />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

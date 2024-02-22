@@ -22,7 +22,7 @@ export function Star({
   };
 
   return (
-    <span
+    <li
       role="button"
       aria-label="star"
       style={starStyle}
@@ -54,6 +54,6 @@ export function Star({
           />
         </svg>
       )}
-    </span>
+    </li>
   );
 }
