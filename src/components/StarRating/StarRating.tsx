@@ -6,7 +6,6 @@ interface StarRatingProps {
   size?: number;
   color?: string;
   defaultRating?: number;
-  className?: string;
   onSetRating?: (rating: number) => void;
   addStyle?: object;
   gap?: number;
@@ -17,7 +16,6 @@ export default function StarRating({
   size = 24,
   color = '#F8D001',
   defaultRating = 0,
-  className = '',
   onSetRating,
   addStyle = {},
   gap = 0,
@@ -69,7 +67,6 @@ export default function StarRating({
       tabIndex={0}
       aria-label={`${rating} stars rating`}
       role="radiogroup"
-      className={className}
       ref={containerRef}
       onKeyDown={handleKeyDown}
     >
