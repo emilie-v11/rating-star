@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Star } from './Star';
 
 interface StarRatingProps {
@@ -20,14 +20,35 @@ export default function StarRating({
 }: StarRatingProps) {
   const [rating, setRating] = useState<number>(defaultRating);
   const [hoverRating, setHoverRating] = useState<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   function handleRating(rating: number) {
     setRating(rating);
     // optional callback
-    if (onSetRating) {
-      onSetRating(rating);
-    }
+    onSetRating?.(rating);
   }
+
+  const handleKeyDown = (event: React.KeyboardEvent<Element>) => {
+    if (event.key === 'Enter') {
+      containerRef.current?.focus();
+
+      const newRating = hoverRating > 0 ? hoverRating : rating;
+      setRating(newRating);
+      // optional callback
+      onSetRating?.(newRating);
+    }
+  };
+
+  useEffect(() => {
+    const handleGlobalKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && containerRef.current) {
+        containerRef.current.focus();
+      }
+    };
+    document.addEventListener('keydown', handleGlobalKeyDown);
+
+    return () => document.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
 
   const containerStyle = {
     display: 'flex',
@@ -45,6 +66,9 @@ export default function StarRating({
     <div
       style={containerStyle}
       className={className}
+      tabIndex={-1}
+      ref={containerRef}
+      onKeyDown={handleKeyDown}
     >
       <ul style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
@@ -56,6 +80,7 @@ export default function StarRating({
             onRate={() => handleRating(i + 1)}
             onHoverIn={() => setHoverRating(i + 1)}
             onHoverOut={() => setHoverRating(0)}
+            onEnterKeyDown={handleKeyDown}
           />
         ))}
       </ul>

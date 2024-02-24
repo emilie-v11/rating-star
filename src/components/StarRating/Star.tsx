@@ -5,6 +5,7 @@ interface StarProps {
   onRate: () => void;
   onHoverIn: () => void;
   onHoverOut: () => void;
+  onEnterKeyDown: (event: React.KeyboardEvent) => void;
 }
 export function Star({
   size,
@@ -13,6 +14,7 @@ export function Star({
   onRate,
   onHoverIn,
   onHoverOut,
+  onEnterKeyDown,
 }: StarProps) {
   const starStyle = {
     width: `${size}px`,
@@ -30,6 +32,9 @@ export function Star({
       onClick={onRate}
       onMouseEnter={onHoverIn}
       onMouseLeave={onHoverOut}
+      onFocus={onHoverIn}
+      onBlur={onHoverOut}
+      onKeyDown={onEnterKeyDown}
     >
       {full ? (
         <svg
