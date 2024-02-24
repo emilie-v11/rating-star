@@ -8,6 +8,7 @@ interface StarRatingProps {
   defaultRating?: number;
   className?: string;
   onSetRating?: (rating: number) => void;
+  addStyle?: object;
 }
 
 export default function StarRating({
@@ -17,6 +18,7 @@ export default function StarRating({
   defaultRating = 0,
   className = '',
   onSetRating,
+  addStyle = {},
 }: StarRatingProps) {
   const [rating, setRating] = useState<number>(defaultRating);
   const [hoverRating, setHoverRating] = useState<number>(0);
@@ -55,6 +57,8 @@ export default function StarRating({
     margin: 0,
     padding: 0,
     gap: '0px',
+    listStyle: 'none',
+    ...addStyle,
   };
 
   return (
