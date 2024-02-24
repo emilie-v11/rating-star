@@ -24,7 +24,8 @@ export function Star({
   return (
     <li
       role="button"
-      aria-label="star"
+      aria-label={`star ${full ? 'full' : 'empty'}`}
+      tabIndex={0}
       style={starStyle}
       onClick={onRate}
       onMouseEnter={onHoverIn}
