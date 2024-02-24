@@ -82,7 +82,7 @@ function App() {
   const [userRating, setUserRating] = useState<number>(0);
   return (
     <div className="App">
-      <StarRating onsetRating={setUserRating} />
+      <StarRating onSetRating={setUserRating} />
       <p>User rating: {userRating}</p>
     </div>
   );
