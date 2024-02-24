@@ -1,4 +1,6 @@
 interface StarProps {
+  value: number;
+  maxRating: number;
   size: number;
   color: string;
   full: boolean;
@@ -8,6 +10,8 @@ interface StarProps {
   onEnterKeyDown: (event: React.KeyboardEvent) => void;
 }
 export function Star({
+  value,
+  maxRating,
   size,
   color,
   full,
@@ -25,8 +29,11 @@ export function Star({
 
   return (
     <li
-      role="button"
+      role="radio"
       aria-label={`star ${full ? 'full' : 'empty'}`}
+      aria-setsize={maxRating}
+      aria-posinset={value}
+      aria-checked={full}
       tabIndex={0}
       style={starStyle}
       onClick={onRate}

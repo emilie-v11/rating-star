@@ -20,7 +20,7 @@ export default function StarRating({
 }: StarRatingProps) {
   const [rating, setRating] = useState<number>(defaultRating);
   const [hoverRating, setHoverRating] = useState<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLUListElement>(null);
 
   function handleRating(rating: number) {
     setRating(rating);
@@ -50,40 +50,44 @@ export default function StarRating({
     return () => document.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
-  const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '16px',
-  };
+  // const containerStyle = {
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  //   gap: '16px',
+  // };
 
   const starContainerStyle = {
     display: 'flex',
+    margin: 0,
     padding: 0,
+    gap: '0px',
   };
 
   return (
-    <div
-      style={containerStyle}
+    <ul
+      style={starContainerStyle}
+      tabIndex={0}
+      aria-label={`${rating} stars rating`}
+      role="radiogroup"
       className={className}
-      tabIndex={-1}
       ref={containerRef}
       onKeyDown={handleKeyDown}
     >
-      <ul style={starContainerStyle}>
-        {Array.from({ length: maxRating }, (_, i) => (
-          <Star
-            key={i}
-            size={size}
-            color={color}
-            full={hoverRating ? hoverRating >= i + 1 : rating >= i + 1}
-            onRate={() => handleRating(i + 1)}
-            onHoverIn={() => setHoverRating(i + 1)}
-            onHoverOut={() => setHoverRating(0)}
-            onEnterKeyDown={handleKeyDown}
-          />
-        ))}
-      </ul>
-    </div>
+      {Array.from({ length: maxRating }, (_, i) => (
+        <Star
+          key={i}
+          value={i + 1}
+          maxRating={maxRating}
+          size={size}
+          color={color}
+          full={hoverRating ? hoverRating >= i + 1 : rating >= i + 1}
+          onRate={() => handleRating(i + 1)}
+          onHoverIn={() => setHoverRating(i + 1)}
+          onHoverOut={() => setHoverRating(0)}
+          onEnterKeyDown={handleKeyDown}
+        />
+      ))}
+    </ul>
   );
 }
