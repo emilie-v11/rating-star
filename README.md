@@ -1,46 +1,93 @@
-# Getting Started with Create React App
+# Rating Star Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The `Rating Star` component is a flexible and customizable star rating widget designed for React applications. Leveraging the power of TypeScript and styled-components, it offers a dynamic and responsive user experience for rating systems across a variety of use cases such as product reviews and customer feedback.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Customization**: Easily customize the number of stars, color, size, and more to fit the look and feel of your application.
+- **Dynamic Feedback**: Provides immediate visual feedback for user interactions through hover and click events.
+- **Accessibility**: Designed with accessibility in mind to ensure that all users can navigate and interact with the rating component.
 
-### `yarn start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Before you start, ensure you have React and Typescript installed in your project.
+If not, you can install React and Typescript using yarn or npm with create-react-app :
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npx create-react-app my-app --template typescript
+or
+yarn create react-app my-app --template typescript
+```
 
-### `yarn test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Using with default Props
 
-### `yarn build`
+To integrate the `StarRating` component into your application with the default props (see props table), follow this simple example:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+import React from 'react';
+import { StarRating } from './components/StarRating';
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+function App() {
+  return (
+    <div className="App">
+      <StarRating />
+    </div>
+  );
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default App;
+```
 
-### `yarn eject`
+| Prop            | Type       | Default   | Description                                    |
+| --------------- | ---------- | --------- | ---------------------------------------------- |
+| `maxRating`     | `number`   | `5`       | Maximum number of stars.                       |
+| `color`         | `string`   | `#fcc419` | Star color.                                    |
+| `size`          | `number`   | `24`      | Size of the stars.                             |
+| `defaultRating` | `number`   | `0`       | Preselected rating.                            |
+| `onSetRating`   | `function` |           | Callback function invoked when rating changes. |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Customize the StarRating component using its props
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can customise the component as you wish using one or more of its props, as in the following example:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```jsx
+import React from 'react';
+import { StarRating } from './components/StarRating';
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+function App() {
+  return (
+    <div className="App">
+      <StarRating
+        maxRating={10}
+        color="red"
+      />
+    </div>
+  );
+}
 
-## Learn More
+export default App;
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `onSetRating` a special props
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+onSetRating is a callback function invoked the value of the rating. You can use this props for using this value outside the component, as in the following example:
+
+```jsx
+import React, { useState } from 'react';
+import { StarRating } from './components/StarRating';
+
+function App() {
+  const [userRating, setUserRating] = useState<number>(0);
+  return (
+    <div className="App">
+      <StarRating onsetRating={setUserRating} />
+      <p>User rating: {userRating}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+## That's all there is to it! Have fun and have a happy coding! 😊
