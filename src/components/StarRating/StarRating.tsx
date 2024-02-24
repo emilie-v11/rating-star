@@ -50,13 +50,6 @@ export default function StarRating({
     return () => document.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
-  // const containerStyle = {
-  //   display: 'flex',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   gap: '16px',
-  // };
-
   const starContainerStyle = {
     display: 'flex',
     margin: 0,
