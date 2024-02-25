@@ -77,7 +77,7 @@ function App() {
 export default App;
 ```
 
-### `onSetRating` a special props
+### onSetRating a special props
 
 onSetRating is a callback function invoked the value of the rating. You can use this props for using this value outside the component, as in the following example:
 
