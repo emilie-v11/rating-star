@@ -48,8 +48,8 @@ export default App;
 
 | Prop          | Type     | Default | Description                                    |
 | ------------- | -------- | ------- | ---------------------------------------------- |
-| maxRating     | number   | 5       | Maximum number of stars.                       |
-| color         | string   | #fcc419 | Star color.                                    |
+| maxRating     | number   | 10      | Maximum number of stars.                       |
+| color         | string   | #F8D001 | Star color.                                    |
 | size          | number   | 24      | Size of the stars.                             |
 | defaultRating | number   | 0       | Preselected rating.                            |
 | onSetRating   | function |         | Callback function invoked when rating changes. |
