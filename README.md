@@ -16,9 +16,12 @@ If not, you can install React and Typescript using yarn or npm with create-react
 
 ```bash
 npx create-react-app my-app --template typescript
+```
 or
+```bash
 yarn create react-app my-app --template typescript
 ```
+
 
 ## Usage
 
