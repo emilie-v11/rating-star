@@ -1,8 +1,8 @@
-# Rating Star Component
+# Star Rating Component
 
 <kbd>![Star rating](./star-rating.png)</kbd>
 
-The `Rating Star` component is a flexible and customizable star rating widget designed for React applications. Leveraging the power of TypeScript, it offers a dynamic and responsive user experience for rating systems across a variety of use cases such as product reviews and customer feedback.
+The `Star Rating` component is a flexible and customizable star rating widget designed for React applications. Leveraging the power of TypeScript, it offers a dynamic and responsive user experience for rating systems across a variety of use cases such as product reviews and customer feedback.
 Additionally, this component is fully accessible and navigable using a keyboard, ensuring a broad usability for users relying on keyboard navigation for interaction.
 
 ## Features
