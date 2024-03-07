@@ -1,6 +1,8 @@
 # Star Rating Component
 
-<kbd>![Star rating](./star-rating.png)</kbd>
+[Test Star Rating on CodeSandbox](https://codesandbox.io/p/sandbox/adoring-lalande-qns5qm?file=%2Fsrc%2FApp.tsx)
+
+<kbd>![Star rating exemples](./star-rating-exemples.png)</kbd>
 
 The Star Rating component is a flexible and customizable star rating widget designed for React applications. Leveraging the power of TypeScript, it offers a dynamic and responsive user experience for rating systems across a variety of use cases such as product reviews and customer feedback.
 Additionally, this component is fully accessible and navigable using a keyboard, ensuring a broad usability for users relying on keyboard navigation for interaction.
@@ -19,11 +21,12 @@ If not, you can install React and Typescript using yarn or npm with create-react
 ```bash
 npx create-react-app my-app --template typescript
 ```
+
 or
+
 ```bash
 yarn create react-app my-app --template typescript
 ```
-
 
 ## Usage
 
@@ -31,7 +34,7 @@ yarn create react-app my-app --template typescript
 
 To integrate the `StarRating` component into your application with the default props (see props table), follow this simple example:
 
-```jsx
+```tsx
 import React from 'react';
 import { StarRating } from './components/StarRating';
 
@@ -60,7 +63,7 @@ export default App;
 
 You can customise the component as you wish using one or more of its props, as in the following example:
 
-```jsx
+```tsx
 import React from 'react';
 import { StarRating } from './components/StarRating';
 
@@ -83,12 +86,12 @@ export default App;
 
 onSetRating is a callback function invoked the value of the rating. You can use this props for using this value outside the component, as in the following example:
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { StarRating } from './components/StarRating';
 
 function App() {
-  const [userRating, setUserRating] = useState < number > 0;
+  const [userRating, setUserRating] = useState<number>(0);
   return (
     <div className="App">
       <StarRating onSetRating={setUserRating} />
@@ -107,17 +110,20 @@ The StarRating component is meticulously designed with accessibility at its core
 ### Mouse Usage
 
 Mouse users can interact with the StarRating component intuitively:
+
 - **Selection**: Click on a star to select a rating. The chosen rating will be immediately applied.
 - **Preview**: By hovering over the stars with the mouse cursor, a visual preview of the rating is displayed, allowing for precise selection before confirming by clicking.
 
 ### Keyboard Usage
 
 Users can interact with the StarRating component using the keyboard in the following manner:
+
 - **Navigation**: You can navigate between the stars of the component by using the Tab key to move forward and Shift + Tab to move backward.
 - **Selection**: Once a star is highlighted via keyboard navigation, press the Enter key to select the corresponding rating.
 - **Disengagement**: To remove focus from the StarRating component, press the Escape key. This allows you to exit the component without making a selection.
 
 ### ARIA Attributes
+
 To support screen readers and assistive technologies, the StarRating and its child Star components use specific ARIA (Accessible Rich Internet Applications) attributes:
 
 - **role="radiogroup"**: This ARIA role on the StarRating component indicates that the group of stars represents a single selection from a list of choices, akin to radio buttons.
