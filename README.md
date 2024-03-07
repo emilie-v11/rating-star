@@ -1,9 +1,5 @@
 # Star Rating Component
 
-[Test Star Rating on CodeSandbox](https://codesandbox.io/p/sandbox/adoring-lalande-qns5qm?file=%2Fsrc%2FApp.tsx)
-
-<kbd>![Star rating exemples](./star-rating-exemples.png)</kbd>
-
 The Star Rating component is a flexible and customizable star rating widget designed for React applications. Leveraging the power of TypeScript, it offers a dynamic and responsive user experience for rating systems across a variety of use cases such as product reviews and customer feedback.
 Additionally, this component is fully accessible and navigable using a keyboard, ensuring a broad usability for users relying on keyboard navigation for interaction.
 
@@ -136,5 +132,9 @@ To support screen readers and assistive technologies, the StarRating and its chi
 ### Commitment to Accessibility
 
 My goal is to make the StarRating component usable by as many people as possible, adhering to web accessibility standards (WCAG). If you encounter difficulties in using this component or have suggestions for improving its accessibility, please do not hesitate to open an issue on my GitHub repository.
+
+## ➡️ ⭐️ You can test Star Rating on [CodeSandbox](https://codesandbox.io/p/sandbox/adoring-lalande-qns5qm?file=%2Fsrc%2FApp.tsx) ⭐️
+
+<kbd>![Star rating exemples](./star-rating-exemples.png)</kbd>
 
 ## **That's all there is to it! Have fun and have a happy coding!** 😊
